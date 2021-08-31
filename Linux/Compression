@@ -1,0 +1,56 @@
+ssh -p 13370 user@greensecurity.ru
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ mv flag flag.lzma
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ unlzma flag.lzma
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag
+flag: bzip2 compressed data, block size = 900k
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ bzip2 -d flag 
+bzip2: Can't guess original name for flag -- using flag.out
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ mv flag flag.bz2
+mv: cannot stat 'flag': No such file or directory
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ bzip2 -d flag.bz2
+bzip2: Can't open input file flag.bz2: No such file or directory.
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ ls
+flag.out
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag.out
+flag.out: gzip compressed data, was "flag", last modified: Sun Oct 13 13:53:47 2019, from Unix, original size modulo 2^32 270
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ gzip -d flag.out
+gzip: flag.out: unknown suffix -- ignored
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ ls
+flag.out
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag.out
+flag.out: gzip compressed data, was "flag", last modified: Sun Oct 13 13:53:47 2019, from Unix, original size modulo 2^32 270
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ mv flag.out flag.gz
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ gzip -d flag.gz
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ ls
+flag
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag
+flag: lzop compressed data - version 1.030, LZO1X-1, os: Unix
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ lzop -d flag
+lzop: flag: unknown suffix -- ignored
+skipping flag [flag.raw]
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ mv flag flag.lzop
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ lzop -d flag.lzop
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ ls
+flag  flag.lzop
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag
+flag: XZ compressed data
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag.lzop
+flag.lzop: lzop compressed data - version 1.030, LZO1X-1, os: Unix
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag
+flag: XZ compressed data
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ xz -d flag
+xz: flag: Filename has an unknown suffix, skipping
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ ls
+flag  flag.lzop
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag
+flag: XZ compressed data
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ xz --decompose flag
+xz: unrecognized option '--decompose'
+xz: Try `xz --help' for more information.
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ mv flag flag.xz
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ xz -d flag.xz
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ ls
+flag  flag.lzop
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ file flag
+flag: ASCII text, with very long lines
+user@6120dd0cdac2:/task/C7mTbRAIka8YZdRGZW8DPSKvQtwGtMXA$ cat flag
