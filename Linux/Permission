@@ -1,6 +1,26 @@
 ssh -p 13376 user@greensecurity.ru
 task
+if su user  -c "[[ ! -r /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user  -c "[[   -w /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user  -c "[[   -x /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user2 -c "[[   -r /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user2 -c "[[ ! -w /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user2 -c "[[   -x /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user3 -c "[[   -r /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user3 -c "[[   -w /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user3 -c "[[ ! -x /task/"$1"/file1 ]]" ; then echo ":("; exit 1; fi
+if su user  -c "[[ ! -r /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user  -c "[[ ! -w /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user  -c "[[   -x /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user2 -c "[[   -r /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user2 -c "[[ ! -w /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user2 -c "[[ ! -x /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user3 -c "[[ ! -r /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user3 -c "[[   -w /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
+if su user3 -c "[[ ! -x /task/"$1"/file2 ]]" ; then echo ":("; exit 1; fi
 ls -l
+-rw-r--r--    1 user     user             0 Aug 31 20:19 file1
+-rw-r--r--    1 user     user             0 Aug 31 20:19 file2
 chmod u+r file1;
 chmod u-wx file1;
 chown user:user2 file1 ;
