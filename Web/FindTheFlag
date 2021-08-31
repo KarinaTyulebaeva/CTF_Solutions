@@ -1,0 +1,2 @@
+curl -L http://greensecurity.ru:40002/ >html.txt
+grep -E [a-zA-Z]{22} html.txt
